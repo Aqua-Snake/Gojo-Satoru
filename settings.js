@@ -19,9 +19,9 @@ global.APIKeys = {
 }
 
 //customize settings\\
-global.owner = ['94701807103']
-global.premium = ['94701807103']
-global.ownernomer = '94701807103'
+global.owner = ['94764746599']
+global.premium = ['94764746599']
+global.ownernomer = '94764746599'
 global.ownername = '🐦Kevin Yamata'
 global.botname = 'CBOT'
 global.footer = '©kevin'
