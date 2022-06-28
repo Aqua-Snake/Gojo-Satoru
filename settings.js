@@ -32,7 +32,7 @@ global.myweb = 'https://youtube.com/'
 global.packname = 'Gojo-Satoru'
 global.author = 'Kevin'
 global.sessionName = 'session'
-global.prefa = ['','!','.','🐦','🐤','🗿']
+global.prefa = ['#']
 global.sp = '⭔'
 global.mess = {
     success: 'Done ✓',
