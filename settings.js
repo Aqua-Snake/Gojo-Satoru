@@ -12,7 +12,7 @@ global.APIKeys = {
 }
 
 //customize settings\\
-global.owner = ['9470180713']
+global.owner = ['94701807103']
 global.premium = ['94701807103']
 global.ownernomer = '94701807103'
 global.ownername = 'CA'
