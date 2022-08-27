@@ -1488,7 +1488,7 @@ Total User : ${Object.keys(global.db.data.users).length}
                                 }, {
                                 quickReplyButton: {
                                     displayText: 'Help',
-                                    id: `${prefix}help`-
+                                    id: `${prefix}help`
                                 }
                             }]
                         }
