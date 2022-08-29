@@ -131,7 +131,7 @@ module.exports = GojoMdNx = async (GojoMdNx, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
+        var prefix = prefa ? /^[#]/gi.test(body) ? body.match(/^[#]/gi)[0] : "" : prefa ?? global.prefix
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -202,11 +202,11 @@ module.exports = GojoMdNx = async (GojoMdNx, m, chatUpdate, store) => {
 	
 	//group target \\
 const reply = (teks) => {
-            GojoMdNx.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Nova-X Project `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./GojoMedia/image3.jpg`),"sourceUrl": "https://telegra.ph/file/8bbe8a7de5c351dfcb077.jpg"}}}, { quoted: m})
+            GojoMdNx.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Nova-X Project `, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./GojoMedia/image3.jpg`),"sourceUrl": "https://aqua-snake.github.io"}}}, { quoted: m})
         }
         
         const replay = (teks) => {
-            GojoMdNx.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Nova-X Project`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./GojoMedia/image3.jpg`),"sourceUrl": "https://telegra.ph/file/8bbe8a7de5c351dfcb077.jpg"}}}, { quoted: m})
+            GojoMdNx.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Nova-X Project`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./GojoMedia/image3.jpg`),"sourceUrl": "https://aqua-snake.github.io"}}}, { quoted: m})
         }
 	
         //Public & Self\\
@@ -258,12 +258,6 @@ const reply = (teks) => {
         }
 
         //auto reply 
-        for (let anji of setik){
-				if (budy === anji){
-					result = fs.readFileSync(`./GojoMedia/sticker/${anji}.webp`)
-					GojoMdNx.sendMessage(m.chat, { sticker: result }, { quoted: m })
-					}
-			}
 			for (let anju of vien){
 				if (budy === anju){
 					result = fs.readFileSync(`./GojoMedia/vn/${anju}.mp3`)
@@ -893,7 +887,7 @@ break
 	    break
 
 	    case 'yts': case 'ytsearch': {
-                if (!text) return replay(`Example : ${prefix + command} Anime Story Whatsapp`)
+                if (!text) return replay(`Example : ${prefix + command} tech videos`)
                 let yts = require("yt-search")
                 let search = await yts(text)
                 let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
@@ -906,7 +900,7 @@ break
             break
 
         case 'google': {
-                if (!text) return reply(`Example : ${prefix + command} gojo shiba inu`)
+                if (!text) return reply(`Example : ${prefix + command} nature`)
                 let google = require('google-it')
                 google({'query': text}).then(res => {
                 let teks = `Google Search Title : ${text}\n\n`
@@ -921,7 +915,7 @@ break
                 break
 
         case 'gimage': case 'googleimage': {
-        if (!text) return reply(`Example : ${prefix + command} gojo`)
+        if (!text) return reply(`Example : ${prefix + command} nature photos`)
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
         n = result
@@ -931,7 +925,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: images },
-                    caption: `*-------「 GIMAGE SEARCH 」-------*
+                    caption: `*GOOGLE IMAGE SEARCH*
  *Query* : ${text}
  *Media Url* : ${images}`,
                     footer: GojoMdNx.user.name,
@@ -1462,23 +1456,23 @@ latensie = speed() - timestampe
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
-                            hydratedContentText: `┌─❖
- ${pushname} 
+                            hydratedContentText: ` Hi, ${pushname} 
  「 BOT INFO 」
+Bot Name : ${global.botname}
 Speed : ${latensie.toFixed(4)} miliseconds
 Runtime : ${runtime(process.uptime())}
-Bot Name : ${global.botname}
 Host Name : ${os.hostname()}
 Platform : ${os.platform()}
 Total User : ${Object.keys(global.db.data.users).length}
+Number of Bots online : 1
 `,
                             locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./GojoMedia/image3.jpg')},
+                            jpegThumbnail: fs.readFileSync('./GojoMedia/novasmall.png')},
                             hydratedFooterText: `${global.footer}`,
                             hydratedButtons: [{
                                 quickReplyButton: {
-                                    displayText: 'All Menu',
-                                    id: `${prefix}allmenu`
+                                    displayText: 'All Bots',
+                                    id: `${prefix}allbots`
                                 }
                                 }, {
                                 quickReplyButton: {
@@ -1519,9 +1513,9 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 								"title": "Bot Features",
 								"rows": [
 									{
-										"title": "All Menu",
+										"title": "All Bots",
 										"description": "Displays The List Of All The Features!",
-										"rowId": `${prefix}allmenu`
+										"rowId": `${prefix}allbots`
 									},
 									{
 										"title": "Owner Menu",
@@ -1534,8 +1528,8 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"rowId": `${prefix}groupmenu`
 										},
 									{
-										"title": "Rpg Menu",
-										"description": "Displays The List Of Rpg Features",
+										"title": "Rpt Menu",
+										"description": "Displays The List Of Rpt Features",
 										"rowId": `${prefix}rpgmenu`
 									},
 									{
@@ -1552,7 +1546,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 											"title": "Random Menu",
 										"description": "Displays The List Of Random Features",
 										"rowId": `${prefix}randommenu`
-										},
+										}/*,
 										{
 											"title": "Random Anime Menu",
 										"description": "Displays The List Of Random Anime Features",
@@ -1587,9 +1581,9 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 											"title": "Horoscope Menu",
 										"description": "Displays The List Of Horoscope Features",
 										"rowId": `${prefix}horoscopemenu`
-										}
+										}*/
 								]
-							},
+							}/*,
 							{
 								"title": "Chat With Fellow Users",
 								"rows": [
@@ -1599,13 +1593,13 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"rowId": `${prefix}anonymouschatmenu`
 									}
 								]
-							},
+							}*/,
 							{
-								"title": "Credit",
+								"title": "Help",
 								"rows": [
 									{
-										"title": "Thanks To",
-										"description": "Displays The List Of Credit Of The Bot !!",
+										"title": "Help of bot",
+										"description": "Displays help Of The Bot !!",
 										"rowId": `${prefix}help`
 									}
 								]
