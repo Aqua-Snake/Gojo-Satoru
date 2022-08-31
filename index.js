@@ -98,9 +98,9 @@ async function startGojoMdNx() {
        }
        let wm_fatih = { url : ppgc }
        if (pea[0].announce == true) {
-       GojoMdNx.send5ButImg(pea[0].id, `「 Group Closed 」\n\nThe Group Has Been Closed By Admin ${pushname} \n Now Only Admin Can Send Messages !`, `© ﹝ 𝗡σνα - χ ﹞`, wm_fatih, [])
+       GojoMdNx.send5ButImg(pea[0].id, `「 Group Closed 」\n\nThe Group Has Been Closed By Admin \n Now Only Admin Can Send Messages !`, `© ﹝ 𝗡σνα - χ ﹞`, wm_fatih, [])
        } else if(pea[0].announce == false) {
-       GojoMdNx.send5ButImg(pea[0].id, `「 Group Opened 」\n\nThe Group Has Been Opened By Admin ${pushname} \n Now Participants Can Send Messages !`, `© ﹝ 𝗡σνα - χ ﹞`, wm_fatih, [])
+       GojoMdNx.send5ButImg(pea[0].id, `「 Group Opened 」\n\nThe Group Has Been Opened By Admin  \n Now Participants Can Send Messages !`, `© ﹝ 𝗡σνα - χ ﹞`, wm_fatih, [])
        } else if (pea[0].restrict == true) {
        GojoMdNx.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Info Has Been Restricted, Now Only Admin Can Edit Group Info !`, `© ﹝ 𝗡σνα - χ ﹞`, wm_fatih, [])
        } else if (pea[0].restrict == false) {
