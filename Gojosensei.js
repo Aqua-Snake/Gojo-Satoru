@@ -131,7 +131,7 @@ module.exports = GojoMdNx = async (GojoMdNx, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
+        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : prefa ?? global.prefix
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -237,7 +237,7 @@ const reply = (teks) => {
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await GojoMdNx.setStatus(`${GojoMdNx.user.name} | Active : ${runtime(uptime)}`)
+		await GojoMdNx.setStatus(`${GojoMdNx.user.name} | Online : ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
@@ -1456,7 +1456,9 @@ latensie = speed() - timestampe
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
-                            hydratedContentText: ` Hi, ${pushname} 
+                            hydratedContentText: ` Hi,
+${pushname} 
+This program is under the testing so sometimes bot is not working properly
  「 BOT INFO 」
 Bot Name : ${global.botname}
 Speed : ${latensie.toFixed(4)} miliseconds
@@ -1467,7 +1469,7 @@ Total User : ${Object.keys(global.db.data.users).length}
 Number of Bots online : 1
 `,
                             locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./GojoMedia/novasmall.jpg')},
+                            jpegThumbnail: fs.readFileSync('./GojoMedia/novalarge.png')},
                             hydratedFooterText: `${global.footer}`,
                             hydratedButtons: [{
                                 quickReplyButton: {
@@ -1613,6 +1615,10 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
              break
             case 'help': {
                 reply(` please contact bot developers\n\n`)
+            }
+          break
+          case 'allbots': {
+                reply(`${global.botname} is now active \n\n`)
             }
           break
 
