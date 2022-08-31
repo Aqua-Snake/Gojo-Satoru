@@ -12,7 +12,7 @@ global.APIKeys = {
 }
 
 //customize settings\\
-global.owner = ['94701807103']
+global.owner = ['9470180713']
 global.premium = ['94701807103']
 global.ownernomer = '94701807103'
 global.ownername = 'CA'
@@ -22,7 +22,7 @@ global.ig = 'https://chat.whatsapp.com/CawOGMvijcPLvLdcqfydTP'
 global.region = 'Sri lanka'
 global.sc = 'https://chat.whatsapp.com/CawOGMvijcPLvLdcqfydTP'
 global.myweb = 'https://aqua-snake.github.io/cyberbotweb'
-global.packname = 'Gojo-Satoru'
+global.packname = '© ﹝ 𝗡σνα - χ ﹞'
 global.author = 'Aqua Snake'
 global.sessionName = 'session'
 global.prefa = ['#']
@@ -52,7 +52,7 @@ global.mess = {
    umpanawal: 5,
    potionawal: 1
 }
-global.thumb = fs.readFileSync('./GojoMedia/image3.jpg')
+global.thumb = fs.readFileSync('./GojoMedia/novalarge.png')
 global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
